@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const Checkbox = ({ categories }) => {
+const Checkbox = ({ categories, handleFilters }) => {
   const [checked, setChecked] = useState([]);
   const handleToggle = (c) => () => {
     const currentCategoryId = checked.indexOf(c);
@@ -13,6 +13,7 @@ const Checkbox = ({ categories }) => {
     }
     console.log(newCheckedCategoryId);
     setChecked(newCheckedCategoryId);
+    handleFilters(newCheckedCategoryId);
   };
   return categories.map((c, i) => (
     <li key={i} className="list-unstyled">
@@ -23,7 +24,7 @@ const Checkbox = ({ categories }) => {
         className="form-check-input"
         id="flexCheckDefault"
       />
-      <label for="flexCheckDefault" classname="form-check-label">
+      <label for="flexCheckDefault" className="form-check-label">
         {c.name}
       </label>
     </li>
