@@ -34,29 +34,29 @@ const Signin = () => {
     });
   };
   const signUpForm = () => (
-    <form>
+    <form className="formformat">
       <div className="form-floating">
-        <label className="text-muted">Email: </label>
         <input
           onChange={handleChange("email")}
           type="email"
           className="form-control"
           value={email}
         />
+        <label for="floatingInput">Email: </label>
       </div>
       <div className="form-floating">
-        <label className="text-muted">Password: </label>
         <input
           onChange={handleChange("password")}
           type="password"
           className="form-control"
           value={password}
         />
+        <label for="floatingInput">Password: </label>
       </div>
       <div className="d-grid gap-2 col-6 mx-auto">
         <button
           onClick={clickSubmit}
-          className="mt-3 m-5 w-60 btn btn-lg btn-primary"
+          className="mt-3 m-4 w-60 btn btn-lg btn-primary"
         >
           Submit
         </button>
