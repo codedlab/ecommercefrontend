@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 
 import { getCategories, list } from "./apiCore";
 import Card from "./Card";
@@ -48,24 +48,38 @@ const Search = () => {
     setData({ ...data, [name]: event.target.value, searched: false });
   };
 
+  const searchMessage = (searched, results) => {
+    if (searched && results.length > 0) {
+      return `Found ${results.length} products`;
+    }
+    if (searched && results.length < 1) {
+      return `No Products Found`;
+    }
+  };
   const searchedProducts = (results = []) => {
     return (
-      <div className="row">
-        {results.map((product, i) => (
-          <Card key={i} product={product} />
-        ))}
-      </div>
+      <Fragment>
+        <div>
+          <h2 className="mt-4 mb-4">{searchMessage(searched, results)}</h2>
+        </div>
+        <div className="row">
+          {results.map((product, i) => (
+            <Card key={i} product={product} />
+          ))}
+        </div>
+      </Fragment>
     );
   };
   const searchForm = () => (
-    <form onSubmit={searchSubmit}>
-      <span className="input-group-text mb-3">
+    <form className="d-flex" onSubmit={searchSubmit}>
+      <span className=" input-group-text mb-3">
         <div className="input-group">
           <select
-            className="input-group-prepend custom-select custom-select-lg"
+            className="form-select input-group-prepend"
+            id="inputGroupSelect01"
             onChange={handleChange("category")}
           >
-            <option value="All">Pick Category</option>
+            <option value="All">All</option>
             {categories.map((c, i) => (
               <option key={i} value={c._id}>
                 {c.name}
@@ -75,13 +89,22 @@ const Search = () => {
 
           <input
             type="search"
-            className="form-control"
+            className="form-control me-0"
             onChange={handleChange("search")}
             placeholder="Search by name"
+            for="inputGroupSelect01"
+            aria-label="Search"
           />
         </div>
+
         <div className="btn input-group-append">
-          <button className="input-group-text">Search</button>
+          <button
+            className="input-group-text"
+            for="inputGroupSelect01"
+            type="submit"
+          >
+            Search
+          </button>
         </div>
       </span>
     </form>
