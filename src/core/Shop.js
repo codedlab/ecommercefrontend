@@ -95,10 +95,10 @@ const Shop = () => {
     <Layout
       title="Shop Page"
       description="Shop Search and Filter"
-      className="container"
+      className="container py-3"
     >
       <div className="row">
-        <div className=" col-4 form-check">
+        <div className=" col-md-3 form-check">
           <h4>Filter by Categories</h4>
           <ul>
             <Checkbox
@@ -114,11 +114,12 @@ const Shop = () => {
             />
           </div>
         </div>
-        <div className=" col-8">
+        <div className=" col-md-9">
           <h2 className="mb-4">Products</h2>
-          <div className="row">
+
+          <div className="row row-cols-1 row-cols-md-3 mb-3">
             {filteredResults.map((product, i) => (
-              <div key={i} className="col-4 mb-3">
+              <div key={i} className="card-deck mb-3 text-center">
                 <Card key={i} product={product} />
               </div>
             ))}

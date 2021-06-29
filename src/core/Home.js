@@ -34,21 +34,20 @@ const Home = () => {
   }, []);
   return (
     <Layout title="Home Page" description="Node React E-commerce App">
-      <div className=" container">
+      <div className=" container py-3">
         <Search />
-        <div className="row">
-          <h2 className="mb-4">New Arrivals</h2>
+        <h2 className="mb-4 text-center">New Arrivals</h2>
+        <div className="row row-cols-1 row-cols-md-3 mb-3">
           {productsByArrival.map((product, i) => (
-            <div key={i} className="col-4 mb-3">
+            <div key={i} className="card-deck mb-3 text-center">
               <Card product={product} />
             </div>
           ))}
         </div>
-
-        <h2 className="mb-4">Best Sellers</h2>
-        <div className="row">
+        <h2 className="mb-4 text-center">Best Sellers</h2>
+        <div className="row row-cols-1 row-cols-md-3 mb-3">
           {productsBySell.map((product, i) => (
-            <div key={i} className="col-4 mb-3">
+            <div key={i} className="card-deck mb-3 text-center">
               <Card product={product} />
             </div>
           ))}
