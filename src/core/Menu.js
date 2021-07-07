@@ -53,10 +53,10 @@ const Menu = ({ history }) => {
                 to="/cart"
               >
                 Cart{" "}
-                <sup>
-                  <small className="cart-badge">{itemTotal()}</small>
-                </sup>
               </Link>
+              <sup>
+                <small className="cart-badge">{itemTotal()}</small>
+              </sup>
             </li>
 
             {isAuthenticated() && isAuthenticated().user.role === 0 && (

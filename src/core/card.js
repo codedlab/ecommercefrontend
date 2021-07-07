@@ -102,8 +102,10 @@ const Card = ({
     );
   };
   return (
-    <div className="card text-center">
-      <div className="card-header name">{product.name}</div>
+    <div className="card mb-4 shadow-sm">
+      <div className="card-header py-3">
+        <div className="my-0 fw-normal">{product.name}</div>
+      </div>
       <div className="card-body">
         {shouldRedirect(redirect)}
         <ShowImage item={product} url="product" />

@@ -55,10 +55,11 @@ const Signin = () => {
       </div>
       <div className="d-grid gap-2 col-6 mx-auto">
         <button
+          type="submit"
           onClick={clickSubmit}
-          className="mt-3 m-4 w-60 btn btn-lg btn-primary"
+          className="btn btn-lg btn-primary mt-3 w-60 btn-radius"
         >
-          Submit
+          Sign In
         </button>
       </div>
     </form>
@@ -92,8 +93,8 @@ const Signin = () => {
   };
   return (
     <Layout
-      title="Signin"
-      description="Signin into Node React E-commerce App"
+      title="Sign In"
+      description="Sign In - React E-commerce App"
       className="container col-md-8 offset-md-2"
     >
       {showError()}

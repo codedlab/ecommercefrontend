@@ -91,8 +91,8 @@ const Signup = () => {
   );
   return (
     <Layout
-      title="Signup"
-      description="Signup into Node React E-commerce App"
+      title="Sign Up"
+      description="Sign Up - React E-commerce App"
       className="container col-md-8 offset-md-2"
     >
       {showError()}

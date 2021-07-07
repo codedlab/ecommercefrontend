@@ -96,8 +96,8 @@ const Dashboard = () => {
       className="container"
     >
       <div className="row">
-        <div className="col-3">{userLinks()}</div>
-        <div className="col-9">
+        <div className="col-lg-3 col-12 mb-3">{userLinks()}</div>
+        <div className="col-lg-9 col-12">
           {userInfo()}
           {purchaseHistory(history)}
         </div>
